@@ -29,7 +29,7 @@ To run the project locally:
 1. Clone the repository from GitHub:
 
 ```bash
-git clone  https://github.com/EzraKipyego/portfolio-company.git
+git clone  [text](https://github.com/EzraKipyego/Portfolio-company)
 ```
 2. Navigate into the project folder:
 ```bash
@@ -47,7 +47,7 @@ cd portfolio-company
 
 
 ## Usage
-- Open the app in your browser (usually http://localhost:5173)
+- Open the app in your browser
 - View existing projects
 - Add a new project using the form
 - Search projects using the search bar
@@ -67,7 +67,7 @@ cd portfolio-company
  ## License
 This project is licensed under the [MIT License](LICENSE).
 
-## Authors
+## Author
 Ezra Kipyego
 
 
