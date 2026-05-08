@@ -1,122 +1,97 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
+import project1 from "./assets/images/project1.jpg";
+import project2 from "./assets/images/project2.jpg";
+import project3 from "./assets/images/project3.jpg";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import ProjectForm from "./components/ProjectForm";
+import SearchBar from "./components/SearchBar";
+import ProjectList from "./components/ProjectList";
+import Hero from "./components/Hero";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [projects, setProjects] = useState([
+    {
+      id: 1,
+      title: "Modern Homes Websites",
+      description: "A modern real estate platform showcasing modern homes, property listings and contact options for potential buyers",
+      image: project1
+    },
+    {
+      id: 2,
+      title: "Nature plants website",
+      description: "A responsive eco-friendly website designed to display plant collections, gardening tips, and online plant shopping for nature lovers",
+      image: project2
+    },
+    {
+      id: 3,
+      title: "Ai  chatbot App",
+      description: "An  Articial intelligent chatbot application built to provide automated conversations, customer support, and smart user interaction",
+      image: project3
+    }
+  ]);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const addProject = (title, description) => {
+
+    if(title.trim() === "" || description.trim() === ""){
+      alert("Please fill all fields");
+      return;
+    }
+
+    const newProject = {
+      id: Date.now(),
+      title: title,
+      description: description,
+      image: project1
+    };
+
+    console.log("New Project Added", newProject);
+
+    setProjects(prevProjects => [...prevProjects, newProject]);
+
+   // setProjects([...projects, newProject]);
+  };
+
+  const deleteProject = (id) => {
+    let newProjects = projects.filter(project => project.id != id);
+    setProjects(newProjects);
+  };
+
+  const searchedProjects = projects.filter(project =>
+    project.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      <div className="min-h-screen bg-gray-100">
 
-      <div className="ticks"></div>
+        <NavBar />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <div className="max-w-5xl mx-auto p-6">
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+          <ProjectForm addProject={addProject} />
+
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
+
+          <ProjectList
+            projects={searchedProjects}
+            onDeleteProject={deleteProject}
+          />
+
+        </div>
+
+        <Footer />
+
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
