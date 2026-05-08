@@ -1,18 +1,76 @@
-# React + Vite
+# Projects Showcase Application SPA (Single Page Application)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+This is a single page application (SPA) built with React that allows users to showcase, add, search, and delete personal development projects. It demonstrates component-based architecture, state management, props passing, and responsive UI design using Tailwind CSS.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Table of Contents
 
-## React Compiler
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Features
+- Display list of projects dynamically
+- Add new projects using a form
+- Delete projects
+- Search/filter projects in real time
+- Responsive UI (mobile & desktop)
+- Clean and modern design using Tailwind CSS
 
-Note: This will impact Vite dev & build performances.
 
-## Expanding the ESLint configuration
+## Installation
+To run the project locally:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository from GitHub:
+
+```bash
+git clone  https://github.com/EzraKipyego/portfolio-company.git
+```
+2. Navigate into the project folder:
+```bash
+cd portfolio-company
+```
+
+3. Install dependencies:
+- npm install 
+- npm createvite@latest
+- npm install tailwindcss @tailwindcss/vite
+
+
+4. Start the development server:
+- npm run dev
+
+
+## Usage
+- Open the app in your browser (usually http://localhost:5173)
+- View existing projects
+- Add a new project using the form
+- Search projects using the search bar
+- Delete unwanted projects
+
+
+## Contributing
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Make your changes.
+4. Commit your changes to github.
+5. Push your branch: `git push -u origin feature-name`.
+6. Create a pull request.
+
+
+
+ ## License
+This project is licensed under the [MIT License](LICENSE).
+
+## Authors
+Ezra Kipyego
+
+
+
+
+
