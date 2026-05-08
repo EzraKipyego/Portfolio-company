@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://EzraKipyego.github.io/portfolio-company",
+  "homepage": "https://EzraKipyego.github.io/Portfolio-company",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
